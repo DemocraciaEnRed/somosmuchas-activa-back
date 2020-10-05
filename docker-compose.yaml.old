@@ -1,0 +1,31 @@
+version: '2'
+services:
+  cakephp:
+    build:
+      context: .
+      dockerfile: .php.Dockerfile
+    ports:
+      - "4000:80"
+    depends_on:
+      - mysql
+    volumes:
+      - .:/var/www/html/
+    environment:
+      - SECURITY_SALT=ashjg23697sds97139871298ashk
+      - MYSQL_URL=mysql
+      - MYSQL_USERNAME=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_DATABASE=causascomunes
+  mysql:
+    build:
+      context: .
+      dockerfile: .mysql.Dockerfile
+    ports:
+      - "3030:3306"
+    volumes:
+       - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=causascomunes
+volumes:
+    mysql_data:

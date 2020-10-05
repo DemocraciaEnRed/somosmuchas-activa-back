@@ -1,0 +1,44 @@
+version: '2'
+services:
+  cakephp:
+    # build:
+    #   context: .
+    #   dockerfile: .php.Dockerfile
+    build: .
+    ports:
+      - "7000:80"
+    depends_on:
+      - mysql
+    volumes:
+      - ./src:/var/www/html/src
+      - ./webroot:/var/www/html/webroot
+      - ./config:/var/www/html/config
+    environment:
+      - SECURITY_SALT=ashjg23697sds97139871298ashk
+      - MYSQL_URL=mysql
+      - MYSQL_PORT=3306
+      - MYSQL_USERNAME=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_DATABASE=causascomunes
+    networks:
+      - phpcake_network
+  mysql:
+    build:
+      context: .
+      dockerfile: .mysql.Dockerfile
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=causascomunes
+    networks:
+      - phpcake_network
+
+volumes:
+    mysql_data:
+
+networks:
+  phpcake_network:
+    driver: bridge  

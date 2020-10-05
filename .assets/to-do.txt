@@ -1,0 +1,40 @@
+PENDIENTES:
+
+4. EN CARRUSEL: sería bueno que podamos configurar un texto arriba. Ver referencia de “Activa el Congreso”
+Por otro lado, la escala cromática de la “posición”, a favor, en contra, etc no me cierra mucho.  
+PRIORIDAD: ALTA
+
+SEMI-PENDIENTES:
+
+6 y 7: redes quedan con los mismos mensajes, telefonos tiene que tener un texto distinto
+
+6. EN ¿CARGA? DE PROYECTOS: el texto de facebook, ¿dónde se configura según su posición? Hay un error de tipeo, dice “Facbeook” PRIORIDAD: ALTA
+7. EN ¿CARGA? DE PROYECTOS: lo mismo que el anterior pero para el texto de instagram, ¿dónde se configura según su posición? PRIORIDAD: ALTA
+
+RESUELTOS:
+
+1. EN CARGA DE CANDIDATXS: Dice “Género” donde debería decir “Estado Civil”. No entiendo qué agrega el “Estado Civil”: lo sacaría   PRIORIDAD: BAJA
+
+2. EN CARGA DE CANDIDATXS: los campos “requeridos” deberían ser: “NOMBRE” “APELLIDO” “CARGO” “IMAGEN” “DISTRITO” “BLOQUE” : nada más PRIORIDAD: BAJA
+
+3. EN CARGA DE CANDIDATXS: no todos van a figurar en el carrusel. Quizás sería bueno poner un campo más en los candidatxs, al lado de cada proyecto de “figura en carrusel de la causa”   PRIORIDAD: ALTÍSIMA
+
+5. EN HOME: necesitamos poder configurar para que aparezca uno de los carruseles que están en las causas en la HOME, abajo de “Activá el Congreso” PRIORIDAD: ALTÍSIMA
+
+8.- EN CARGA DE PROYECTOS: Los videos no se pueden vincular. Pasa algo raro, además, que es que no quedan cargados los que ya se agregaron, siempre está vacío (cuando uno guarda, los links ingresados se “pierden”, no aparecen más) PRIORIDAD: MEDIA
+
+9.- EN PROYECTOS: cuando quiero twittear sale el tuit con doble arroba PRIORIDAD: BAJA
+
+10.- EN CARGA DE DISTRITOS: No se pueden crear nuevos distritos PRIORIDAD: BAJA
+
+11.- “Qué” no tiene tilde. Una pelotudez PRIORIDAD: BAJA
+
+12.- Los links del pie de página de las redes sociales están erradas, habría que cambiarlas por las de causas comunes (ver en http://causascomunes.com/) PRIORIDAD: BAJA
+
+13. Cambiaría el nombre del campo “URL” de los proyectos por “URL Interna”. Yo pensé que había que poner una url externa y puse http://… y después se rompió todo (validaría además este campo, sensible, para que no puedas ingresar caracteres raros).  PRIORIDAD: BAJA
+
+14.- Haría que al hacer click en la imagen del proyecto, en la home, entres al proyecto. PRIORIDAD: MEDIA
+
+15- En mobile el título y subtítulo principal sobresalen (414px x 736px)
+
+16.- Al crear un nuevo proyecto, solo poniendo nombre y url, y guardar me sale el siguiente error (igualmente el proyecto se crea, queda en la HOME todo en blanco, y no se puede acceder): PRIORIDAD: MEDIA

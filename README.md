@@ -2,6 +2,8 @@ Este repositorio arrancó como una copia de DemocraciaEnRed/causascomunes-presio
 
 # Causas Comunes
 
+`docker-compose up`
+
 ## Backend
 
 Definir las siguientes como variables de entorno:
@@ -15,7 +17,7 @@ Definir las siguientes como variables de entorno:
 - MYSQL_DATABASE=causascomunes
 ```
 
-Carpetas que habira que persistir:
+Carpetas que hay que persistir/volumizar:
 
 - `webroot/img` (ahi es donde se suben las imagenes)
 

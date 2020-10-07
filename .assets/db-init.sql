@@ -43,7 +43,8 @@ CREATE TABLE `districts` (
 -- Dumping data for table `districts`
 --
 
-INSERT INTO `districts` (`id`, `name`, `image`, `dir`, `size`, `type`, `hasc`, `hierarchy`) VALUES
+-- distritos originales
+/*INSERT INTO `districts` (`id`, `name`, `image`, `dir`, `size`, `type`, `hasc`, `hierarchy`) VALUES
 (1, 'Ciudad Autónoma de Buenos Aires', 'Bandera_de_la_Ciudad_de_Buenos_Aires.png', '\\img\\distritos\\1563417854.7762', '46720', 'image/png', 'CA', 1),
 (2, 'Buenos Aires', 'Bandera_de_la_Provincia_de_Buenos_Aires.png', '\\img\\distritos\\1563417866.1746', '18356', 'image/png', 'BA', 1),
 (3, 'Catamarca', 'Bandera_de_la_Provincia_de_Catamarca.png', '\\img\\distritos\\1563417885.5716', '83320', 'image/png', 'CT', 1),
@@ -69,7 +70,7 @@ INSERT INTO `districts` (`id`, `name`, `image`, `dir`, `size`, `type`, `hasc`, `
 (23, 'Tierra del Fuego', 'Bandera_de_la_Provincia_de_Tierra_del_Fuego.png', '\\img\\distritos\\1563419324.2148', '5167', 'image/png', 'TF', 1),
 (24, 'Tucumán', 'Bandera_de_la_Provincia_de_Tucumán.png', '\\img\\distritos\\1563419319.4852', '233', 'image/png', 'TM', 1),
 (25, 'Nacional', '', NULL, NULL, NULL, 'AR', 0);
-
+*/
 -- --------------------------------------------------------
 
 --

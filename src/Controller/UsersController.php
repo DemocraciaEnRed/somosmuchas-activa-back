@@ -74,9 +74,9 @@ class UsersController extends AppController
      */
     public function add()
     {
-        if($this->Users->find()->count() > 0) {
+        /*if($this->Users->find()->count() > 0) {
             return $this->redirect(['action' => 'login']);
-        }
+        }*/
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());

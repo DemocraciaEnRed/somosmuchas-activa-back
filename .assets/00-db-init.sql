@@ -260,8 +260,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `created`, `modified`) VALUES
-(1, 'admin', '$2y$10$dOZzqbtsW8g9cWJMN7qo1eZZv53DpEsJ1GAg7/OY9bJakGr0R1xq6', '2019-07-19 21:58:17', '2019-07-19 21:58:17');
+-- en otro .sql aparte lo pusimos
+-- INSERT INTO `users` (`id`, `username`, `password`, `created`, `modified`) VALUES
+-- (1, 'admin', '$2y$10$dOZzqbtsW8g9cWJMN7qo1eZZv53DpEsJ1GAg7/OY9bJakGr0R1xq6', '2019-07-19 21:58:17', '2019-07-19 21:58:17');
 
 -- --------------------------------------------------------
 

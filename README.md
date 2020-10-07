@@ -1,6 +1,6 @@
 Este repositorio arrancó como una copia de DemocraciaEnRed/causascomunes-presion-backend [8c94980](https://github.com/DemocraciaEnRed/causascomunes-presion-backend/tree/8c9498000cb3e4e1e55e62e34584e8a4fb1a2e67)
 
-# Causas Comunes
+# Somos Muchas
 
 para iniciar rápidamente:
 `docker-compose up`

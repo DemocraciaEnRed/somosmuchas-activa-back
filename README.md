@@ -2,7 +2,11 @@ Este repositorio arrancó como una copia de DemocraciaEnRed/causascomunes-presio
 
 # Causas Comunes
 
+para iniciar rápidamente:
 `docker-compose up`
+
+o si doker está apagado:
+`systemctl start docker.service && docker-compose up`
 
 ## Backend
 

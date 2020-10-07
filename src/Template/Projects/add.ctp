@@ -66,6 +66,7 @@
                 <h5>Imagen de Portada</h5>
                 <div class="th image-previewContainer"><img class="image-preview" src="<?= $this->request->getAttribute("webroot") . "img/placeholder.jpg"  ?>" id="previewCoverImage" /></div>
                 <br>
+                <h6>No se permiten imágenes .jpg</h6>
                 <?= $this->Form->control('cover_image', ['type' => 'file', 'label' => '', 'required' => true, 'class' => 'imageUpload', 'data-preview' => 'previewCoverImage']) ?>
                 <br>
             </div>
@@ -73,6 +74,7 @@
                 <h5>Imagen de Tarjeta</h5>
                 <div class="th image-previewContainer"><img class="image-preview" src="<?= $this->request->getAttribute("webroot") . "img/placeholder.jpg"  ?>" id="previewImage" /></div>
                 <br>
+                <h6>No se permiten imágenes .jpg</h6>
                 <?= $this->Form->control('image', ['type' => 'file', 'label' => '', 'required' => true, 'class' => 'imageUpload', 'data-preview' => 'previewImage']) ?>
                 <br>
             </div>
@@ -193,11 +195,11 @@ new CP(document.querySelector("#secondary-color")).on("change", function(color) 
 function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
-    
+
     reader.onload = function(e) {
       $('#' + $(input).data('preview')).attr('src', e.target.result);
     }
-    
+
     reader.readAsDataURL(input.files[0]);
   }
 }
@@ -210,7 +212,7 @@ $('#name').bind("keyup change", function() { $('#slug').val(encodeURI($(this).va
 
 angular.module('relationsApp', [])
   .controller('TweetsListController', function() {
-      
+
     var tweetList = this;
     tweetList.position = new Array(0, 0, 0, 0);
     tweetList.tweets = new Array([], [], [], []);
@@ -241,13 +243,13 @@ angular.module('relationsApp', [])
         {id: 2, name: "Se Abstiene"},
         {id: 3, name: "No Confirmado"},
     ]
- 
+
     tweetList.add = function(stance) {
       tweetList.tweets[stance].push({text: tweetList.tweetText[stance], position: tweetList.position[stance]});
       tweetList.position[stance]++;
       tweetList.tweetText[stance] = '';
     };
- 
+
     tweetList.delete = function(position, stance) {
       tweetList.tweets[stance].forEach(function(item, index, object) {
         if (item.position === position) {
@@ -264,7 +266,7 @@ angular.module('relationsApp', [])
     videoList.position = 0;
     videoList.videos = new Array();
     videoList.show = <?= $this->request->getData('show_videos') == 1 ? 1 : 0  ?>;
-    
+
     <?php if(!empty($this->request->getData('Video'))) { ?>
 
     videoList.videos = <?= json_encode($this->request->getData('Video')) ?>;
@@ -272,7 +274,7 @@ angular.module('relationsApp', [])
     videoList.position = videoList.videos.length;
 
     <?php } ?>
- 
+
     videoList.add = function(stance) {
         videoList.videos.push({name: videoList.videoTitle, url: videoList.videoURL, position: videoList.position});
         videoList.position++;

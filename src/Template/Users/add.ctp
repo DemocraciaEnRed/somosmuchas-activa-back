@@ -9,9 +9,9 @@
 <div class="users form large-9 medium-8 columns content">
     <?= $this->Form->create($user) ?>
     <fieldset>
-        <legend><?= __('Crear usuario') ?></legend>
+        <legend><?= __('Crear usuarix') ?></legend>
         <?php
-            echo $this->Form->control('username', ['label' => 'Usuario']);
+            echo $this->Form->control('username', ['label' => 'Usuarix']);
             echo $this->Form->control('password', ['label' => 'Contraseña']);
         ?>
     </fieldset>

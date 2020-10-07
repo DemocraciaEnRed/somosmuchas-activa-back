@@ -65,6 +65,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/', ['controller' => 'Users', 'action' => 'login']);
     $routes->connect('/cerrar-sesion', ['controller' => 'Users', 'action' => 'logout']);
 
+    $routes->connect('/usuarixs', ['controller' => 'Users', 'action' => 'index']);
     $routes->connect('/alta', ['controller' => 'Users', 'action' => 'add']);
 
     $routes->connect('/inicio', ['controller' => 'Pages', 'action' => 'display', 'home']);
@@ -80,19 +81,19 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/proyecto/nuevo', ['controller' => 'Projects', 'action' => 'add']);
     $routes->connect('/proyecto/editar/*', ['controller' => 'Projects', 'action' => 'edit']);
     $routes->connect('/proyecto/eliminar/*', ['controller' => 'Projects', 'action' => 'delete']);
-    
+
     $routes->connect('/bloques', ['controller' => 'Parties', 'action' => 'index']);
     $routes->connect('/bloque/*', ['controller' => 'Parties', 'action' => 'view']);
     $routes->connect('/bloque/nuevo', ['controller' => 'Parties', 'action' => 'add']);
     $routes->connect('/bloque/editar/*', ['controller' => 'Parties', 'action' => 'edit']);
     $routes->connect('/bloque/eliminar/*', ['controller' => 'Parties', 'action' => 'delete']);
-    
+
     $routes->connect('/distritos', ['controller' => 'Districts', 'action' => 'index']);
     $routes->connect('/distrito/*', ['controller' => 'Districts', 'action' => 'view']);
     $routes->connect('/distrito/nuevo', ['controller' => 'Districts', 'action' => 'add']);
     $routes->connect('/distrito/editar/*', ['controller' => 'Districts', 'action' => 'edit']);
     $routes->connect('/distrito/eliminar/*', ['controller' => 'Districts', 'action' => 'delete']);
-    
+
     $routes->connect('/cargos', ['controller' => 'Districts', 'action' => 'index']);
     $routes->connect('/cargo/*', ['controller' => 'Districts', 'action' => 'view']);
     $routes->connect('/cargo/nuevo', ['controller' => 'Districts', 'action' => 'add']);

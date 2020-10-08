@@ -45,19 +45,20 @@
         echo $this->Form->control('slug', ['label' => 'URL Interna', 'required' => true, 'value' => $project->slug, 'id' => 'slug']);
         echo $this->Form->control('positions._ids', ['label' => 'Cargos', 'options' => $positions]);
         ?>
+        <?= $this->Form->control('short_text', ['label' => 'Texto resumen/introducción']) ?>
+        <br>
         <div class="input mb-2">
-            <label>Texto en Carousel&emsp;<span data-reveal-id="sliderTextModal" alt="Expandir" style="cursor: pointer"><i class="material-icons">help_outline</i></span></label>
+            <label>Texto descripción proyecto&emsp;<span data-reveal-id="sliderTextModal" alt="Expandir" style="cursor: pointer"><i class="material-icons">help_outline</i></span></label>
             <div id="sliderTextModal" class="reveal-modal large" data-reveal aria-labelledby="sliderTextModalTitle" aria-hidden="true" role="dialog">
-                <h4 id="sliderTextModalTitle">Ayuda de texto</h4>
+                <h4 id="sliderTextModalTitle">Ayuda</h4>
                 <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                <p>Este texto aparecerá una vez dentro del proyecto.</p>
             </div>
         </div>
         <?= $this->Form->control('slider_text', ['label' => false]) ?>
         <br>
-        <?= $this->Form->control('short_text', ['label' => 'Texto en Tarjeta de Resumen']) ?>
-        <br>
         <h4>
-            Artículo&nbsp;
+            Artículo interno&nbsp;
             <label class="switch" data-tooltip aria-haspopup="true" title="Muestra u oculta el articulo al entrar en los detalles del proyecto">
                 <input type="hidden" name="show_text" value="0">
                 <input type="checkbox" name="show_text" value="1" <?= $project->show_text == 1 ? "checked" : "" ?>>
@@ -80,7 +81,7 @@
                 <br>
             </div>
             <div class="medium-6 columns">
-                <h5>Imagen de Tarjeta</h5>
+                <h5>Imagen de Proyecto</h5>
                 <?php if(!empty($project->image)) { ?>
                 <div class="th image-previewContainer"><img class="image-preview" src="<?= rtrim($this->request->getAttribute("webroot"), '/') . str_replace("\\", "/", h($project->dir)) . '/thumb-' . h($project->image) ?>" id="previewImage" /></div>
                 <?php } ?>
@@ -123,7 +124,7 @@
                     <h5>{{stance.name}}</h5>
                     <div class="row collapse row-max" ng-repeat="tweet in tweetList.tweets[stance.id]">
                         <div class="small-10 columns">
-                            <input type="text" name="Tweet[{{stance.id}}][{{tweet.position}}][text]" ng-model="tweet.text" size="160">
+                            <input type="text" name="Tweet[{{stance.id}}][{{tweet.position}}][text]" maxlength="160" ng-model="tweet.text" size="160">
                             <input type="hidden" name="Tweet[{{stance.id}}][{{tweet.position}}][id]" ng-model="tweet.id" value="{{tweet.id}}">
                         </div>
                         <div class="small-2 columns">

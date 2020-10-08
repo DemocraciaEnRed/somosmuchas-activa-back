@@ -41,9 +41,7 @@
             echo $this->Form->control('phone', ['label' => 'Telefono']);
             echo $this->Form->control('gender', ['label' => 'Género', 'options' => [0 => 'Masculino', 1 => 'Femenino', 2 => 'Otro']]);
             $this->Form->setTemplates(['dateWidget' => '{{day}}/&emsp;{{month}}/&emsp;{{year}}']);
-            echo $this->Form->control('birthday', ['empty' => false, 'label' => 'Fecha de Nacimiento', 'monthNames' => false, 'minYear' => '1900', 'maxYear' => date("Y", strtotime("18 years ago"))]);
             echo $this->Form->control('position_id', ['options' => $positions, 'label' => 'Cargo', 'required' => true]);
-            echo $this->Form->control('religion', ['label' => 'Religión']);
             echo $this->Form->control('image', ['type' => 'file', 'label' => 'Imagen']);
         ?>
         <?php if(!empty($politician->image)) { ?>
@@ -159,6 +157,6 @@
             toggleProjects(false);
         });
     });
-    
+
 <?php $this->Html->scriptEnd(); ?>
 </script>

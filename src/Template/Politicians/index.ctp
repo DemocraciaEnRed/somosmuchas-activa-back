@@ -17,7 +17,7 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('last_name', ['label' => 'Apellido, Nombre']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('position_id', ['label' => 'Cargo']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('birthday', ['label' => 'Fecha de Nacimiento']) ?></th>
+                <!--<th scope="col"><?= $this->Paginator->sort('birthday', ['label' => 'Fecha de Nacimiento']) ?></th>-->
                 <th scope="col" class="text-center" style="width:100px">Imagen</th>
                 <th scope="col"><?= $this->Paginator->sort('district_id', ['label' => 'Distrito']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('party_id', ['label' => 'Bloque']) ?></th>
@@ -29,7 +29,7 @@
             <tr>
                 <td><?= h($politician->last_name) ?>, <?= h($politician->first_name) ?></td>
                 <td><?= $politician->has('position') ? $this->Html->link($politician->position->name, ['controller' => 'Positions', 'action' => 'view', $politician->position->id]) : '' ?></td>
-                <td><?= !empty($politician->birthday) ? h($politician->birthday->format('d/m/Y')) : "" ?></td>
+                <!--<td><?= !empty($politician->birthday) ? h($politician->birthday->format('d/m/Y')) : "" ?></td>-->
                 <td class="p-2"><img src="<?= rtrim($this->request->getAttribute("webroot"), '/') . (!empty($politician->image) ? (str_replace("\\", "/", h($politician->dir)) . '/thumb-' . h($politician->image)) : "img/placeholders/personas/box-person-placeholder.png")  ?>"  /></td>
                 <td><?= $politician->has('district') ? $this->Html->link($politician->district->name, ['controller' => 'Districts', 'action' => 'view', $politician->district->name]) : '' ?></td>
                 <td><?= $politician->has('party') ? $this->Html->link($politician->party->name, ['controller' => 'Parties', 'action' => 'view', $politician->party->name]) : '' ?></td>

@@ -19,3 +19,11 @@ jobs:
           registry: containers.pkg.github.com
           username: ${{ secrets.REGISTRY_USER }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
+      - name: Trigger stack update
+        uses: fjogeleit/http-request-action@master
+        with:
+          url: ${{ secrets.STACK_URL }}
+          method: 'POST'
+          customHeaders: '{"Accept":  "application/vnd.github.everest-preview+json"}'
+          bearerToken: ${{ secrets.REGISTRY_PASSWORD }}
+          data: '{"event_type": "update-stack"}'

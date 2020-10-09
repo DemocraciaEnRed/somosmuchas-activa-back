@@ -70,7 +70,7 @@
         ?>
         <br>
         <div class="flex image-flex ml-0">
-            <div class="medium-6 columns">
+            <!--<div class="medium-6 columns">
                 <h5>Imagen de Portada</h5>
                 <?php if(!empty($project->cover_image)) { ?>
                 <div class="th image-previewContainer"><img class="image-preview" src="<?= rtrim($this->request->getAttribute("webroot"), '/') . str_replace("\\", "/", h($project->c_dir)) . '/thumb-' . h($project->cover_image) ?>" id="previewCoverImage" /></div>
@@ -79,7 +79,7 @@
                 <h6>No se permiten imágenes .jpg</h6>
                 <?= $this->Form->control('cover_image', ['type' => 'file', 'label' => '', 'class' => 'imageUpload', 'data-preview' => 'previewCoverImage']) ?>
                 <br>
-            </div>
+            </div>-->
             <div class="medium-6 columns">
                 <h5>Imagen de Proyecto</h5>
                 <?php if(!empty($project->image)) { ?>
@@ -91,7 +91,7 @@
                 <br>
             </div>
         </div>
-        <div class="row mx-0">
+        <div style="display:none" class="row mx-0">
             <div class="medium-6 columns pl-0">
                 <label for="primary-color">Color Primario</label>
                 <div class="row collapse">
@@ -120,6 +120,7 @@
         <div ng-app="relationsApp">
             <div ng-controller="TweetsListController as tweetList">
                 <h4>Tweets</h4>
+                <p>Recomendamos incluir <a href="#" onclick="event.preventDefault()">#Hashtags</a> y <a href="#" onclick="event.preventDefault()">@Arrobadas</a></p>
                 <div class="panel" ng-repeat="stance in tweetList.stances">
                     <h5>{{stance.name}}</h5>
                     <div class="row collapse row-max" ng-repeat="tweet in tweetList.tweets[stance.id]">

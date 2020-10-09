@@ -1,6 +1,5 @@
 # CakePHP specific files #
 ##########################
-/.github
 /logs/*
 /tmp/*
 /vendor/*

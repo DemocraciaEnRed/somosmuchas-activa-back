@@ -3,7 +3,7 @@
 # latest from https://hub.docker.com/_/php/
 FROM php:7.3.3-apache
 #install all the system dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
   libicu-dev \
   libpq-dev \
   mysql-client \
@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
   libfreetype6-dev \
   libjpeg62-turbo-dev \
   libpng-dev \
+  libmagickwand-dev \
   && rm -r /var/lib/apt/lists/*
 # configure the php modules
 RUN docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
@@ -28,12 +29,16 @@ RUN docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
   opcache \
   gd
 
+#install imagick (also in apt)
+RUN printf "\n" | pecl install imagick
+RUN docker-php-ext-enable imagick
+
 #install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
 #set our application folder as an environment variable
 ENV APP_HOME /var/www/html
-# 
+#
 RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
 # https://stackoverflow.com/questions/25922882/php-docker-script-unable-to-write-to-tmp
 # RUN chmod 777 -R /tmp && chmod o+t -R /tmp

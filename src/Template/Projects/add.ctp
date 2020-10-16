@@ -67,7 +67,6 @@
                 <h5>Imagen de Portada</h5>
                 <div class="th image-previewContainer"><img class="image-preview" src="<?= $this->request->getAttribute("webroot") . "img/placeholder.jpg"  ?>" id="previewCoverImage" /></div>
                 <br>
-                <h6>No se permiten imágenes .jpg</h6>
                 <?= $this->Form->control('cover_image', ['type' => 'file', 'label' => '', 'required' => true, 'class' => 'imageUpload', 'data-preview' => 'previewCoverImage']) ?>
                 <br>
             </div>-->
@@ -75,7 +74,6 @@
                 <h5>Imagen de Proyecto</h5>
                 <div class="th image-previewContainer"><img class="image-preview" src="<?= $this->request->getAttribute("webroot") . "img/placeholder.jpg"  ?>" id="previewImage" /></div>
                 <br>
-                <h6>No se permiten imágenes .jpg</h6>
                 <?= $this->Form->control('image', ['type' => 'file', 'label' => '', 'required' => true, 'class' => 'imageUpload', 'data-preview' => 'previewImage']) ?>
                 <br>
             </div>

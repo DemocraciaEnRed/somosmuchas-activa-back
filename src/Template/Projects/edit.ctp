@@ -76,7 +76,6 @@
                 <div class="th image-previewContainer"><img class="image-preview" src="<?= rtrim($this->request->getAttribute("webroot"), '/') . str_replace("\\", "/", h($project->c_dir)) . '/thumb-' . h($project->cover_image) ?>" id="previewCoverImage" /></div>
                 <?php } ?>
                 <br>
-                <h6>No se permiten imágenes .jpg</h6>
                 <?= $this->Form->control('cover_image', ['type' => 'file', 'label' => '', 'class' => 'imageUpload', 'data-preview' => 'previewCoverImage']) ?>
                 <br>
             </div>-->
@@ -86,7 +85,6 @@
                 <div class="th image-previewContainer"><img class="image-preview" src="<?= rtrim($this->request->getAttribute("webroot"), '/') . str_replace("\\", "/", h($project->dir)) . '/thumb-' . h($project->image) ?>" id="previewImage" /></div>
                 <?php } ?>
                 <br>
-                <h6>No se permiten imágenes .jpg</h6>
                 <?= $this->Form->control('image', ['type' => 'file', 'label' => '', 'class' => 'imageUpload', 'data-preview' => 'previewImage']) ?>
                 <br>
             </div>

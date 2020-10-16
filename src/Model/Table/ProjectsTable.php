@@ -27,7 +27,7 @@ use Cake\Validation\Validator;
  */
 class ProjectsTable extends Table
 {
-    
+
     public function sanitizeLatin($string) {
         $unsupported_characters = ['Ñ', 'ñ', 'Á', 'É', 'Í', 'Ó', 'Ú', 'á', 'é', 'í', 'ó', 'ú', 'Ä', 'Ë', 'Ï', 'Ö', 'Ü',  'ä', 'ë', 'ï', 'ö', 'ü', ' '];
         $ucharacters_replace = ['n', 'n', 'a', 'e', 'i', 'o', 'u', 'a', 'e', 'i', 'o', 'u', 'a', 'e', 'i', 'o', 'u', 'a', 'e', 'i', 'o', 'u', '-'];
@@ -51,7 +51,7 @@ class ProjectsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
-        
+
         $this->addBehavior('Josegonzalez/Upload.Upload', [
             'cover_image' => [
 				'filesystem' => [
@@ -83,14 +83,14 @@ class ProjectsTable extends Table
     					$tmp = tempnam(sys_get_temp_dir(), 'upload') . '.' . $extension;
 
                         $cover = tempnam(sys_get_temp_dir(), 'upload') . '.' . $extension;
-                        
+
     					$grid = tempnam(sys_get_temp_dir(), 'upload') . '.' . $extension;
 
                         $cover= tempnam(sys_get_temp_dir(), 'upload') . '.' . $extension;
 
                         $box = tempnam(sys_get_temp_dir(), 'upload') . '.' . $extension;
 
-    					$imagine = new \Imagine\Gd\Imagine();
+    					$imagine = new \Imagine\Imagick\Imagine();
 
     					$image = $imagine->open($data['tmp_name']);
 
@@ -98,7 +98,7 @@ class ProjectsTable extends Table
 
                 		$width = $sizes->getWidth();
                         $height = $sizes->getHeight();
-                        
+
                         $this->imageTransformer($cover, $image, 1920, 650);
 
                         $this->imageTransformer($box, $image, 320, 320);
@@ -140,14 +140,14 @@ class ProjectsTable extends Table
                     if (in_array($extension, $supported_image)) {
 
     					$tmp = tempnam(sys_get_temp_dir(), 'upload') . '.' . $extension;
-                        
+
     					$grid = tempnam(sys_get_temp_dir(), 'upload') . '.' . $extension;
 
                         $cover= tempnam(sys_get_temp_dir(), 'upload') . '.' . $extension;
 
                         $box = tempnam(sys_get_temp_dir(), 'upload') . '.' . $extension;
 
-    					$imagine = new \Imagine\Gd\Imagine();
+    					$imagine = new \Imagine\Imagick\Imagine();
 
     					$image = $imagine->open($data['tmp_name']);
 
@@ -261,10 +261,10 @@ class ProjectsTable extends Table
             ->maxLength('name', 255)
             ->notEmpty('name', 'Debe ingresar el nombre del proyecto.')
             ->add(
-                'name', 
+                'name',
                 ['unique' => [
-                    'rule' => 'validateUnique', 
-                    'provider' => 'table', 
+                    'rule' => 'validateUnique',
+                    'provider' => 'table',
                     'message' => 'Ya existe un proyecto con ese nombre.']
                 ]
             );
@@ -278,10 +278,10 @@ class ProjectsTable extends Table
             ->maxLength('slug', 255)
             ->notEmpty('slug', 'Debe ingresar la URL Interna del proyecto.')
             ->add(
-                'slug', 
+                'slug',
                 ['unique' => [
-                    'rule' => 'validateUnique', 
-                    'provider' => 'table', 
+                    'rule' => 'validateUnique',
+                    'provider' => 'table',
                     'message' => 'Ya existe un proyecto con esa URL Interna.']
                 ]
             );

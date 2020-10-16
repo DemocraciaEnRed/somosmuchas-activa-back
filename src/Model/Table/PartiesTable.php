@@ -67,7 +67,7 @@ class PartiesTable extends Table
 
                         $box = tempnam(sys_get_temp_dir(), 'upload') . '.' . $extension;
 
-    					$imagine = new \Imagine\Gd\Imagine();
+    					$imagine = new \Imagine\Imagick\Imagine();
 
     					$image = $imagine->open($data['tmp_name']);
 

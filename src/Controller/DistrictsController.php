@@ -12,7 +12,7 @@ use App\Controller\AppController;
  */
 class DistrictsController extends AppController
 {
-    
+
     public function initialize()
     {
         parent::initialize();
@@ -23,8 +23,8 @@ class DistrictsController extends AppController
 
     public function getAll()
     {
-        $data = $this->Districts->find('all')->where(['hierarchy' => 1]);
-        
+        $data = $this->Districts->find('all')/*->where(['hierarchy' => 1])*/;
+
         $this->set([
             'districts' => $data,
             '_serialize' => 'districts',

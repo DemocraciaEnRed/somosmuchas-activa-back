@@ -41,7 +41,7 @@ class PoliticiansController extends AppController
             ],
             'contain' => [
                 'Districts' => [
-                    'fields' => ['name', 'hasc']
+                    'fields' => ['name', 'hasc', 'id']
                 ],
                 'Parties' => [
                     'fields' => ['name']
@@ -67,7 +67,7 @@ class PoliticiansController extends AppController
                     'Positions',
                     'Politicians',
                     'Politicians.Districts' => [
-                        'fields' => ['name', 'hasc']
+                        'fields' => ['name', 'hasc', 'id']
                     ],
                     'Politicians.Parties' => [
                         'fields' => ['name']
@@ -94,14 +94,14 @@ class PoliticiansController extends AppController
                 }
             }
         }
-        
+
         $this->set([
             'politicians' => $data,
             '_serialize' => 'politicians',
         ]);
         $this->RequestHandler->renderAs($this, 'json');
     }
-    
+
     /**
      * Index method
      *

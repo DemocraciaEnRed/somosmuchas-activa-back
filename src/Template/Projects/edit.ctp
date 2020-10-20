@@ -118,7 +118,10 @@
         <div ng-app="relationsApp">
             <div ng-controller="TweetsListController as tweetList">
                 <h4>Tweets</h4>
-                <p>Recomendamos incluir <a href="#" onclick="event.preventDefault()">#Hashtags</a> y <a href="#" onclick="event.preventDefault()">@Arrobadas</a></p>
+                <ul>
+                  <li>Recomendamos incluir <a href="#" onclick="event.preventDefault()">#Hashtags</a> y <a href="#" onclick="event.preventDefault()">@Arrobadas</a></li>
+                  <li>Si incluyen un arroba (@) aislado dentro del mensaje este será autocompletado con el twitter de lx candidatx</li>
+                </ul>
                 <div class="panel" ng-repeat="stance in tweetList.stances">
                     <h5>{{stance.name}}</h5>
                     <div class="row collapse row-max" ng-repeat="tweet in tweetList.tweets[stance.id]">

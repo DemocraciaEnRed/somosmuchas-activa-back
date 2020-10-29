@@ -34,7 +34,9 @@ RUN printf "\n" | pecl install imagick
 RUN docker-php-ext-enable imagick
 
 #install composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+#RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+# Latest 1.x - https://getcomposer.org/download/
+RUN curl -sS https://getcomposer.org/composer-1.phar -o composer.phar
 
 #set our application folder as an environment variable
 ENV APP_HOME /var/www/html
@@ -49,6 +51,7 @@ RUN a2enmod rewrite
 #copy source files and run composer
 COPY . $APP_HOME
 # install all PHP dependencies
-RUN composer install --no-interaction
+#RUN composer install --no-interaction
+RUN php composer.phar install --no-interaction
 #change ownership of our applications
 RUN chown -R www-data:www-data $APP_HOME

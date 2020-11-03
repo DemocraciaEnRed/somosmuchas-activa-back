@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Log\Log;
 
 /**
  * Politicians Controller
@@ -23,6 +24,42 @@ class PoliticiansController extends AppController
 
     public function getAll($projectSlug = null, $cover = false)
     {
+
+        $candidatxsAMostrar = "Miguel Ángel ,Pinto Hernández
+Paloma ,Valencia Laserna
+Angélica Lizbeth,Lozano Correa
+Esperanza,Andrade de Osso
+María Fernanda,Cabal Molina
+Alexander,López Maya
+Gustavo Francisco ,Petro Urrego
+Iván Leónidas ,Name Vásquez
+Julián,Gallo Cubillos
+Luis Fernando ,Velasco Chaves
+Fabio Raúl ,Amín Salame
+Roy Leonardo ,Barreras
+Armando,Benedetti Villaneda
+Rodrigo ,Lara Restrepo
+Roosvelt ,Rodríguez Rengifo
+Temístocles,Ortega Narváez
+Germán,Varón Cotrino
+Carlos Eduardo,Enríquez Maya
+Juan Carlos,García Gómez
+Carlos Eduardo,Guevara Villabón
+José Obdulio ,Gaviria Vélez
+Santiago,Valencia González";
+        // armamos array de líneas
+        $candidatxsArray = explode("\n", $candidatxsAMostrar);
+        $candidatxsCondition = array();
+        // iteramos líneas armando la condición
+        for ($i = 0; $i < count($candidatxsArray); $i++) {
+          $split = explode(",", $candidatxsArray[$i]);
+          // esto después se procesa como un AND (dentro del OR global)
+          array_push($candidatxsCondition, array(
+            "first_name "=> trim($split[0]),
+            "last_name" => trim($split[1]),
+          ));
+        }
+
         $data = $this->Politicians->find('all', [
             'fields' => [
                 'id',
@@ -53,6 +90,9 @@ class PoliticiansController extends AppController
                 'Stances.Projects' => [
                     'fields' => ['slug']
                 ]
+            ],
+            'conditions' => [
+              'OR' => $candidatxsCondition
             ]
         ]);
 

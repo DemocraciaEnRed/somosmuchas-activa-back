@@ -126,7 +126,7 @@
                     <h5>{{stance.name}}</h5>
                     <div class="row collapse row-max" ng-repeat="tweet in tweetList.tweets[stance.id]">
                         <div class="small-10 columns">
-                            <input type="text" name="Tweet[{{stance.id}}][{{tweet.position}}][text]" maxlength="160" ng-model="tweet.text" size="160">
+                            <input type="text" name="Tweet[{{stance.id}}][{{tweet.position}}][text]" maxlength="240" ng-model="tweet.text" size="240">
                             <input type="hidden" name="Tweet[{{stance.id}}][{{tweet.position}}][id]" ng-model="tweet.id" value="{{tweet.id}}">
                         </div>
                         <div class="small-2 columns">

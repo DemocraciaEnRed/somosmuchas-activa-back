@@ -20,11 +20,9 @@ class PoliticiansController extends AppController
         $nav = $this->nav;
         $nav[0] = true;
         $this->set(compact('nav'));
-    }
 
-    public function getAll($projectSlug = null, $cover = false)
-    {
-
+        // lo pidieron a último momento así que lo dejo hardcodeado
+        // lo hice en el initialize así no se re-procesa en cada request
         $candidatxsAMostrar = "Miguel Ángel ,Pinto Hernández
 Paloma ,Valencia Laserna
 Angélica Lizbeth,Lozano Correa
@@ -46,19 +44,65 @@ Carlos Eduardo,Enríquez Maya
 Juan Carlos,García Gómez
 Carlos Eduardo,Guevara Villabón
 José Obdulio ,Gaviria Vélez
-Santiago,Valencia González";
+Santiago,Valencia González
+
+Adriana Magali,Matiz Vargas
+Alejandro Alberto,Vega Pérez
+Alfredo Rafael ,Deluque Zuleta
+Álvaro Hernán ,Prada Artunduaga
+Andrés David ,Calle Aguas
+Ángela María,Robledo Gómez
+Buenaventura ,León León
+Carlos German,Navas Talero
+Cesar Augusto ,Lorduy Maldonado
+David Ernesto ,Pulido Novoa
+Edward David,Rodríguez Rodríguez
+Elbert ,Díaz Lozano
+Erwin ,Arias Betancur
+Gabriel ,Santos García
+Gabriel Jaime ,Vallejo Chujfi
+Harry Giovanny ,González García
+Hernán Gustavo ,Estupiñan Calvache
+Inti Raúl ,Asprilla Reyes
+Jaime,Rodríguez Contreras
+John Jairo ,Hoyos García
+Jorge ,Méndez Hernández
+Jorge Eliecer ,Tamayo Marulanda
+Jorge Enrique ,Burgos Lugo
+José Daniel ,López Jiménez
+José Gustavo ,Padilla Orozco
+José Jaime ,Uscategui Pastrana
+Juan Carlos,Wills Ospina
+Juan Carlos ,Losada Vargas
+Juan Fernando ,Reyes Kuri
+Juan Manuel ,Daza Iguarán
+Juanita María,Goebertus Estrada
+Julián,Peinado Ramírez
+Julio Cesar ,Triana Quintero
+Luis Alberto,Albán Urbano
+Margarita María,Restrepo Arango
+Nilton,Córdoba Manyoma
+Oscar Hernán ,Sánchez León
+Oscar Leonardo ,Villamizar Meneses
+";
         // armamos array de líneas
         $candidatxsArray = explode("\n", $candidatxsAMostrar);
-        $candidatxsCondition = array();
+        $this->candidatxsCondition = array();
         // iteramos líneas armando la condición
         for ($i = 0; $i < count($candidatxsArray); $i++) {
+          if (empty(trim($candidatxsArray[$i])))
+            continue;
           $split = explode(",", $candidatxsArray[$i]);
           // esto después se procesa como un AND (dentro del OR global)
-          array_push($candidatxsCondition, array(
+          array_push($this->candidatxsCondition, array(
             "first_name "=> trim($split[0]),
             "last_name" => trim($split[1]),
           ));
         }
+    }
+
+    public function getAll($projectSlug = null, $cover = false)
+    {
 
         $data = $this->Politicians->find('all', [
             'fields' => [
@@ -92,7 +136,7 @@ Santiago,Valencia González";
                 ]
             ],
             'conditions' => [
-              'OR' => $candidatxsCondition
+              'OR' => $this->candidatxsCondition
             ]
         ]);
 

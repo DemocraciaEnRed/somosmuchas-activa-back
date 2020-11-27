@@ -134,9 +134,9 @@ Oscar Leonardo ,Villamizar Meneses
                 'Stances.Projects' => [
                     'fields' => ['slug']
                 ]
-            ],
-            'conditions' => [
-              'OR' => $this->candidatxsCondition
+//            ],
+//            'conditions' => [
+//              'OR' => $this->candidatxsCondition
             ]
         ]);
 

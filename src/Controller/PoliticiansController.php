@@ -166,7 +166,8 @@ Oscar Leonardo ,Villamizar Meneses
                 ]
             ])->where(['Projects.slug' => $projectSlug])->first();
             if(!empty($project)) {
-                if(false/*$cover*/ && !empty($project->politicians)) {
+                // ESTA COSA ESTABA COMO FALSE, LO PASE A TRUE PARA QUE ME DE LOS QUE YOOOOOO DECIDO PONER EN EL CARROUSEL
+                if(true/*$cover*/ && !empty($project->politicians)) {
                     $data = $project->politicians;
                 }
                 else {

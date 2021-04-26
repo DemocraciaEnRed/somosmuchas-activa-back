@@ -32,7 +32,10 @@
         <?php
             echo $this->Form->control('instagram', ['label' => 'Instagram']);
             echo $this->Form->control('facebook', ['label' => 'Facebook']);
-            echo $this->Form->control('phone', ['label' => 'Telefono']);
+            echo $this->Form->control('phone', ['label' => 'Telefono  (Para whatsapp! No fijos y/o internos!)']);
+        ?>
+          <p>Nota: El campo telefono debe servir en primer lugar para el boton de enviar mensaje a whataspp. Debe ser el numero completo internacional (Tal cual como aparece en Whatsapp), sin el simbolo "+" y sin espacios.</p>  
+        <?php
             echo $this->Form->control('gender', ['label' => 'Género', 'options' => [0 => 'Masculino', 1 => 'Femenino', 2 => 'Otro']]);
             $this->Form->setTemplates(['dateWidget' => '{{day}}/&emsp;{{month}}/&emsp;{{year}}']);
             echo $this->Form->control('position_id', ['options' => $positions, 'label' => 'Cargo', 'required' => true]);
